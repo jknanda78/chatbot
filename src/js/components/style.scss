@@ -1,0 +1,88 @@
+@import '../../styles/normalize';
+@import '../../styles/breakpoints';
+
+.flex-container {
+  display: flex;
+  height: 100%;
+}
+
+.chatbot-layout {
+  border: 1px solid $layout-border-color;
+  height: 100%;
+  width: 100%;
+
+  .header {
+    background: $header-bg-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    h2 {
+      color: $h1-color;
+      font-size: 1.2em;
+    }
+  }
+
+  .main {
+    .chatbot-msg-container {
+      height: 400px;
+      min-width: 200px;
+      overflow-y: scroll;
+      position: relative;
+    }
+
+    .msg-item {
+      border: 1px solid $chatbot-msg-item;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 5px;
+
+      &.chatbot {
+        background: $chatbot-msg-item-bg-color;
+      }
+
+      &.user {
+        background: $chatbot-msg-item-user-bg-color;
+      }
+    }
+
+    form {
+      background: $chatbot-form-bg-color;
+      padding: 10px;
+
+      div {
+        display: inline-flex;
+
+        &:first-child {
+          width: 80%;
+        }
+
+        &:last-child {
+          width: 18%;
+        }
+      }
+
+
+      textarea {
+        margin-right: 5px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      button {
+        border: 1px solid $chatbot-msg-item;
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  .footer {
+    p {
+      background: $chatbot-footer-bg-color;
+      font-size: .9em;
+      padding: 2px;
+      text-align: right;
+    }
+  }
+}
