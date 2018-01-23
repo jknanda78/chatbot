@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import { history } from '../store';
 import Chatbot from '../container';
 
 /**
@@ -7,9 +9,9 @@ import Chatbot from '../container';
  * @function
  */
 const Routes = () => (
-  <BrowserRouter>
-    <Chatbot />
-  </BrowserRouter>
+  <ConnectedRouter history={history}>
+    <Route exact path="/example/" component={Chatbot} />
+  </ConnectedRouter>
 );
 
 export default Routes;
