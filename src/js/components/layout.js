@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import reduxForm from 'redux-form/es/reduxForm';
+import Field from 'redux-form/es/Field';
 import Header from './header';
 import Footer from './footer';
 import MessageContainer from './message-container';
