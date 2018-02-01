@@ -32,21 +32,29 @@ renderTextarea.propTypes = {
  * @function
  * @param {object} props - props passed from parent component
  */
-const Layout = ({ messages, sendMessage, handleSubmit }) => (
-  <div className="chatbot-layout">
-    <Header />
-    <main className="main" role="main">
-      <MessageContainer messages={messages} />
-      <form onSubmit={handleSubmit(sendMessage)}>
-        <Field name="message" component={renderTextarea} placeholder="Enter message" />
-        <div>
-          <button name="send" type="submit">Send</button>
-        </div>
-      </form>
-    </main>
-    <Footer />
-  </div>
-);
+const Layout = ({
+  messages,
+  sendMessage,
+  pristine,
+  handleSubmit
+}) => {
+  console.log('pristine::', pristine); //eslint-disable-line
+  return (
+    <div className="chatbot-layout">
+      <Header />
+      <main className="main" role="main">
+        <MessageContainer messages={messages} />
+        <form onSubmit={handleSubmit(sendMessage)}>
+          <Field name="message" component={renderTextarea} placeholder="Enter message" />
+          <div>
+            <button name="send" type="submit">Send</button>
+          </div>
+        </form>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 Layout.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.shape({
@@ -54,7 +62,8 @@ Layout.propTypes = {
     type: PropTypes.string
   })).isRequired,
   sendMessage: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired
 };
 
 /**

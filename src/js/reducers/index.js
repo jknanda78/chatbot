@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
-import formReducer from 'redux-form/es/reduxForm';
+import reducer from 'redux-form/es/reducer';
 import chatbotMsgReducer from './chatbot-msg-reducer';
 
 export default combineReducers({
-  form: formReducer,
+  form: reducer,
   chatbotMsgReducer,
   routing
 });
